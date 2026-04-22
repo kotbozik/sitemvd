@@ -1,0 +1,253 @@
+/* -------------------- RESET & GLOBAL -------------------- */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', 'Roboto', 'Helvetica Neue', sans-serif;
+    background: linear-gradient(135deg, #0a2f6c 0%, #0e4b8e 100%);
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 24px;
+    position: relative;
+}
+
+/* Легкая текстура на фоне (символика) */
+body::before {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 80 80" opacity="0.06"><path fill="none" stroke="%23ffffff" stroke-width="1.2" d="M20 20 L60 20 M20 30 L60 30 M20 40 L60 40 M20 50 L60 50 M20 60 L60 60 M30 20 L30 60 M40 20 L40 60 M50 20 L50 60 M60 20 L60 60"/><circle cx="40" cy="40" r="8" stroke="white" fill="none"/><polygon points="40,28 44,36 52,36 46,42 48,50 40,45 32,50 34,42 28,36 36,36" stroke="white" fill="none"/></svg>');
+    background-repeat: repeat;
+    pointer-events: none;
+}
+
+/* -------------------- КАРТОЧКА ВХОДА -------------------- */
+.login-container {
+    background: #ffffff;
+    border-radius: 32px;
+    box-shadow: 0 25px 45px rgba(0, 0, 0, 0.2), 0 0 0 1px rgba(25, 118, 210, 0.2);
+    overflow: hidden;
+    width: 100%;
+    max-width: 480px;
+    transition: transform 0.2s ease;
+}
+
+/* Верхняя полоса (синяя) */
+.hero-bar {
+    background: linear-gradient(98deg, #0a2f6c 0%, #1565c0 100%);
+    padding: 1.8rem 2rem 1.5rem 2rem;
+    text-align: center;
+    border-bottom: 4px solid #ffffff;
+}
+
+.institute-emblem {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 0.75rem;
+}
+
+.shield-icon {
+    width: 58px;
+    height: 58px;
+    background: rgba(255, 255, 255, 0.15);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 32px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+    border: 1px solid rgba(255, 255, 255, 0.5);
+}
+
+.hero-bar h1 {
+    font-size: 1.7rem;
+    font-weight: 700;
+    letter-spacing: 0.02em;
+    color: white;
+    text-shadow: 0 1px 2px rgba(0,0,0,0.2);
+    margin-bottom: 0.25rem;
+}
+
+.hero-bar .sub {
+    font-size: 0.8rem;
+    color: #e3f2fd;
+    font-weight: 500;
+    opacity: 0.95;
+}
+
+/* -------------------- ФОРМА (белая зона) -------------------- */
+.form-section {
+    padding: 2rem 2rem 1.8rem;
+}
+
+.input-group {
+    margin-bottom: 1.6rem;
+}
+
+.input-group label {
+    display: block;
+    font-weight: 600;
+    font-size: 0.85rem;
+    color: #0a2f6c;
+    margin-bottom: 0.5rem;
+    letter-spacing: 0.3px;
+    text-transform: uppercase;
+}
+
+.input-field {
+    width: 100%;
+    padding: 0.9rem 1rem;
+    font-size: 1rem;
+    background-color: #f8faff;
+    border: 1px solid #cbd5e1;
+    border-radius: 20px;
+    transition: all 0.2s;
+    font-family: inherit;
+    outline: none;
+    color: #0a2540;
+}
+
+.input-field:focus {
+    border-color: #1565c0;
+    box-shadow: 0 0 0 3px rgba(21, 101, 192, 0.2);
+    background-color: #ffffff;
+}
+
+/* кнопка входа (синяя) */
+.btn-login {
+    width: 100%;
+    background: linear-gradient(95deg, #0a2f6c, #1565c0);
+    border: none;
+    padding: 0.9rem;
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: white;
+    border-radius: 40px;
+    cursor: pointer;
+    transition: 0.2s;
+    margin-top: 0.5rem;
+    margin-bottom: 1rem;
+    font-family: inherit;
+    letter-spacing: 1px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.btn-login:hover {
+    background: linear-gradient(95deg, #0e3d8a, #1976d2);
+    transform: translateY(-1px);
+    box-shadow: 0 8px 18px rgba(0, 0, 0, 0.15);
+}
+
+.btn-login:active {
+    transform: translateY(1px);
+}
+
+/* ссылка "Забыли пароль?" */
+.forgot-link {
+    text-align: center;
+    margin: 0.8rem 0 0.2rem;
+}
+
+.forgot-link a {
+    color: #1565c0;
+    font-size: 0.9rem;
+    font-weight: 500;
+    text-decoration: none;
+    border-bottom: 1px dashed #90caf9;
+    transition: 0.2s;
+}
+
+.forgot-link a:hover {
+    color: #0a2f6c;
+    border-bottom-style: solid;
+}
+
+/* -------------------- УВЕДОМЛЕНИЕ О COOKIE (синий акцент) -------------------- */
+.cookie-notice {
+    background-color: #f0f7ff;
+    border-top: 1px solid #cddae9;
+    padding: 1rem 1.5rem;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    font-size: 0.75rem;
+    color: #0a2f6c;
+}
+
+.cookie-text {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    flex: 2;
+    font-weight: 500;
+}
+
+.cookie-icon {
+    font-size: 1.2rem;
+}
+
+.cookie-btn {
+    background: none;
+    border: 1px solid #1565c0;
+    background-color: #ffffff;
+    padding: 6px 18px;
+    border-radius: 50px;
+    font-size: 0.7rem;
+    font-weight: bold;
+    color: #1565c0;
+    cursor: pointer;
+    transition: 0.2s;
+    font-family: inherit;
+}
+
+.cookie-btn:hover {
+    background-color: #1565c0;
+    color: white;
+    border-color: #0a2f6c;
+}
+
+/* нижний колонтитул */
+.legal-note {
+    background: #ffffff;
+    font-size: 0.7rem;
+    text-align: center;
+    padding: 0.7rem;
+    color: #4a627a;
+    border-top: 1px solid #e9edf2;
+    letter-spacing: 0.3px;
+}
+
+/* -------------------- АДАПТИВНОСТЬ -------------------- */
+@media (max-width: 520px) {
+    .form-section {
+        padding: 1.6rem;
+    }
+    .hero-bar h1 {
+        font-size: 1.3rem;
+    }
+    .cookie-notice {
+        flex-direction: column;
+        text-align: center;
+    }
+    .cookie-btn {
+        width: 100%;
+        text-align: center;
+    }
+}
+
+/* доступность */
+.input-field:user-invalid {
+    border-color: #f57c5c;
+}
